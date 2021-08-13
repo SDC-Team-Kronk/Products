@@ -14,18 +14,23 @@ app.get('/products', (req, res) => {
   db.getProducts([page, count], (err, result) => {
     if (err) {
       console.log('Error reading product list');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.sendStatus(404);
     } else {
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).send(result);
     }
   });
 });
+
 app.get('/products/:productId', (req, res) => {
   db.getProductInfo(req.params.productId, (err, result) => {
     if (err) {
       console.log('Error reading product info');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.sendStatus(404);
     } else {
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).send(result);
     }
   });
@@ -36,8 +41,11 @@ app.get('/products/:productId/styles', (req, res) => {
   db.getStyleInfo(req.params.productId, (err, result) => {
     if (err) {
       console.log('Error reading Style info');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.sendStatus(404);
     } else {
+      console.log('sending stlyes');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).send(result);
     }
   });
@@ -48,8 +56,10 @@ app.get('/products/:productId/related', (req, res) => {
   db.getRelated(req.params.productId, (err, result) => {
     if (err) {
       console.log('Error reading related info');
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.sendStatus(404);
     } else {
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).send(result);
     }
   });
