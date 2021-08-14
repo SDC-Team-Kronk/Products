@@ -44,7 +44,7 @@ app.get('/products/:productId/styles', (req, res) => {
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.sendStatus(404);
     } else {
-      console.log('sending stlyes');
+      //  console.log('sending stlyes');
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).send(result);
     }

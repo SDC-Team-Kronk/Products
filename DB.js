@@ -41,15 +41,19 @@ const getProductInfo = (product, cb) => {
 
 const getStyleInfo = (product, cb) => {
   const request = {
-    text: 'SELECT * FROM style WHERE product_id = $1', //  need to include photo data here via a join
+    text: `select style.id, style_name, original_price, sale_price, isdefault, jsonb_agg(json_build_object('photo_url',photos.photo_url, 'thumbnail_url', photos.thumbnail_url)) as photos, jsonb_object_agg(skus.id, json_build_object('quantity', skus.quantity, 'size', skus.size)) as skus from style full join photos on photos.style_id = style.id full join skus on skus.style_id = style.id where style.id = $1 group by
+    style.id;`,
     values: [product],
   };
+
   pgClient.query(request, (err, result) => {
     if (err) {
       return cb(err, null);
     }
     //  console.log(result.rows[0]);
-    return cb(null, result);
+    const data = {};
+    data.results = result.rows;
+    return cb(null, data);
   });
 };
 
