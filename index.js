@@ -46,6 +46,11 @@ app.get('/products/:productId/styles', (req, res) => {
     } else {
       //  console.log('sending stlyes');
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      result.product_id = req.params.productId;
+      result.results.forEach((styleObj) => {
+        styleObj['default?'] = styleObj.isdefault;
+        delete styleObj.isdefault;
+      });
       res.status(200).send(result);
     }
   });

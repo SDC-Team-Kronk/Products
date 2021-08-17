@@ -66,3 +66,5 @@ CREATE TABLE photos
   thumbnail_url VARCHAR
 );
 \copy photos FROM '/Users/portiajones/Downloads/photos.csv'  CSV HEADER;
+
+DECLARE RecentProducts SCROLL CURSOR FOR SELECT * FROM products;

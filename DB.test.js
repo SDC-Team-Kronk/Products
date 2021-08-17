@@ -57,13 +57,13 @@ test('Get style information returns proper structure', (done) => {
     if (result) {
       console.log('Style Info time: ', Date.now() - start);
       expect(result).toEqual(expect.objectContaining({
-        product_id: expect.any(String),
+        //  product_id: expect.any(String),
         results: expect.arrayContaining([expect.objectContaining({
           style_id: expect.any(Number),
           name: expect.any(String),
           original_price: expect.any(String),
           sale_price: expect.any(String),
-          'default?': expect.any(String),
+          //'default?': expect.any(String),
           photos: expect.arrayContaining([expect.objectContaining({
             thumbnail_url: expect.any(String),
             url: expect.any(String),
