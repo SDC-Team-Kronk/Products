@@ -79,7 +79,7 @@ test('Get style information returns proper structure', (done) => {
     done();
   });
 });
-
+// stolen from schema lol: DECLARE RecentProducts SCROLL CURSOR FOR SELECT * FROM products;
 test('Get related information returns proper structure', (done) => {
   const start = Date.now();
   db.getRelated(24528, (err, result) => {

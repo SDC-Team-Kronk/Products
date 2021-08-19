@@ -3,6 +3,7 @@ const compression = require('compression');
 const db = require('./DB');
 
 const PORT = 3030;
+const HOST = '0.0.0.0';
 const app = express();
 
 app.use(express.json());
@@ -70,8 +71,8 @@ app.get('/products/:productId/related', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log('Listening on port: ', PORT);
+app.listen(PORT, HOST, () => {
+  console.log('Listening on http://', HOST, PORT);
 });
 
 module.exports = app;

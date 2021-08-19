@@ -1,9 +1,9 @@
 const pg = require('pg');
 
 const pgClient = new pg.Client({
-  host: 'localhost',
+  host: 'db',
   user: 'postgres',
-  port: 5433,
+  //port: 5432,
   password: 'password',
   database: 'productservice'
 });

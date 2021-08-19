@@ -1,0 +1,8 @@
+
+CMD [ "npm", "startp" ]
+
+    volumes:
+        APIData:
+
+  volumes:
+    -APIData:/var/lib/postgresql/data
