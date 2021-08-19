@@ -8,7 +8,6 @@ services:
       - db
     networks:
       - connector
-
   db:
     image: postgres
     restart: always
@@ -23,7 +22,6 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-
 networks:
   connector:
 volumes:
